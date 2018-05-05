@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FilterPipe } from 'ngx-filter-pipe';
 
 @Component({
   selector: 'app-root',
@@ -39,4 +40,10 @@ export class AppComponent {
       "price" : 204,
     },
   ]
+
+  hotelFilter: any = { location: '' };
+
+  constructor(private filterPipe: FilterPipe) {
+    console.log(filterPipe.transform(this.hotelList, { location: 'M'}));
+  }
 }

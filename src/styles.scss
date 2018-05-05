@@ -5,11 +5,14 @@
   color: #FFFFFF;
 }
 
-.nopadding {
+ul, ol, .nopadding {
   padding: 0 !important;
   margin: 0 !important;
 }
-
+.searchBox{
+    background: #f9f9f9;
+    border: 1px solid rgb(223, 223, 223);
+}
 .guestSelectionCount {
   margin: 0;
   padding: 0;
@@ -42,6 +45,8 @@
 
 .searchResultItem {
   padding: 1.2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgb(223, 223, 223);
 }
 
 .image-box{

@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <form class="row">
+  <form class="row searchBox mt-4 mb-4 p-3">
     <div class="form-group col-lg-6">
       <label class="control-label" for="email">Where are you going?</label>
-      <input type="text" class="form-control location" id="location">
+      <input type="text" class="form-control location" id="location" [(ngModel)]="hotelFilter.location" [ngModelOptions]="{standalone: true}" placeholder="Type to filter by location">
     </div>
     <div class="col-sm-12 col-lg-6">
       <div class="row">
@@ -32,11 +32,11 @@
       </div>
     </div>
   </form>
-  <div class="row searchResultItem shadow-lg" *ngFor="let hotel of hotelList">
-      <div class="col-sm-12 col-md-4 col-lg-3 image-box">
+  <div class="row searchResultItem shadow-sm" *ngFor="let hotel of hotelList | filterBy: hotelFilter">
+      <div class="col-sm-12 col-md-3 col-lg-3 image-box">
          
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-6 hotelInfo">
+      <div class="col-sm-12 col-md-6 col-lg-6 hotelInfo">
           <ul class="rating">
             <li class="star" id="star1">&nbsp;</li>
             <li class="star" id="star2">&nbsp;</li>
@@ -51,7 +51,7 @@
             {{hotel.detailAddress}}
           </h6>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-3 priceInfo">
+      <div class="col-sm-12 col-md-3 col-lg-3 priceInfo">
          <p class="priceInfoSmallText">from</p>
          <p>
            <span class="priceText">
@@ -79,7 +79,9 @@
           </p>
           <button type="submit" class="btn btn-default">Show rooms</button>
       </div>
-
+      <div *ngIf="(hotelList | filterBy: hotelFilter).length === 0">
+        No matching locations
+      </div>
   </div>
 </div>
 

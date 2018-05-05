@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn-default {
+  background: #ff6600;
+  color: #FFFFFF;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.guestSelectionCount {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 3rem;
+  li {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    font-size: 1rem;
+    list-style-type: none;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    &:nth-last-child() {
+      margin-right: 0;
+    }
+    &.selected {
+      background: #ff6600;
+      color: #FFF;
+    }
+  }
+}
+
+.searchResultItem {
+  padding: 1.2rem;
+}
+
+.image-box{
+    background: #CCC;
+}
+
+.star,
+.yellow_star {
+  background: url(../src/assets/images/ystar.svg) no-repeat center center;
+  background-size: contain;
+  height: 0.8rem;
+  width: 0.8rem;
+  display: inline-block;
+  margin: 0 0.1rem;
+}
+
+.yellow_star {
+  background: url(../src/assets/images/ystar.svg) no-repeat center center;
+}

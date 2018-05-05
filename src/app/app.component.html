@@ -18,10 +18,10 @@
         <div class="form-group col-sm-12 col-lg-4 guestSelection">
           <label class="control-label col-12 nopadding" for="guest">Guest</label>
           <ul class="guestSelectionCount">
-            <li id="1">1</li>
-            <li class="selected" id="2">2</li>
-            <li id="3">3</li>
-            <li id="4">3+</li>
+            <li [class.selected]="clicked === 1" (click)="clicked = 1" id="1">1</li>
+            <li [class.selected]="clicked === 2" (click)="clicked = 2" id="2">2</li>
+            <li [class.selected]="clicked === 3" (click)="clicked = 3" id="3">3</li>
+            <li [class.selected]="clicked === 4" (click)="clicked = 4" id="4">3+</li>
           </ul>
         </div>
       </div>
@@ -44,9 +44,9 @@
             <li class="star" id="star4">&nbsp;</li>
             <li class="star" id="star5">&nbsp;</li>
           </ul>
-          <h1 class="hotelName">
+          <h3 class="hotelName">
             {{hotel.name}}
-          </h1>
+          </h3>
           <h6 class="locationDetails">
             {{hotel.detailAddress}}
           </h6>

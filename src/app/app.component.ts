@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FilterPipe } from 'ngx-filter-pipe';
+import {HotelSearchService} from './hotelSearch.service';
 
 @Component({
   selector: 'app-root',
@@ -39,11 +40,22 @@ export class AppComponent {
       "currency" : "$",
       "price" : 204,
     },
-  ]
+  ];
 
   hotelFilter: any = { location: '' };
 
-  constructor(private filterPipe: FilterPipe) {
-    console.log(filterPipe.transform(this.hotelList, { location: 'M'}));
+  constructor(private filterPipe: FilterPipe, private hotelSearchService : HotelSearchService) {
+    /* console.log(filterPipe.transform(this.hotelList, { location: 'M'})); */
+  }
+
+  searchHotels(){
+    this.hotelSearchService.init().subscribe(
+       data => {
+         console.log(data);
+       },
+       error => {
+         console.error("Error on initializing search");
+       }
+    );
   }
 }
